@@ -1,0 +1,18 @@
+variables:
+  DEPLOY_ENVIRONMENT:
+    value: "167.0.2.35"
+    options:
+      - "167.0.2.35"
+      - "167.0.2.36"
+      - "167.0.2.37"
+
+stages:
+  - test
+
+build-job:
+  stage: test
+  image: alpine:3.18.0
+  script:
+    - echo "$DEPLOY_ENVIRONMENT"
+  tags:
+    - feature
